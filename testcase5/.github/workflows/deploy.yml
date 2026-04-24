@@ -1,0 +1,28 @@
+name: Deploy Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out the repository code
+        uses: actions/checkout@v4
+      
+      - name: Set up Node.js version 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install project dependencies
+        run: npm install
+      
+      - name: Build the Docker image tagged as nodejs-api
+        run: docker build -t nodejs-api .
+      
+      - name: Print deployment message
+        run: echo "Deploying application to server..."
