@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  nodejs-api:
+    build: .
+    image: nodejs-api
+    container_name: nodejs-api-container
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
