@@ -1,5 +1,7 @@
 # Node.js REST API with Docker
 
+![Docker Build and Test](https://github.com/YOUR_USERNAME/nodejs-api/workflows/Docker%20Build%20and%20Test/badge.svg)
+
 A simple Node.js REST API containerized with Docker.
 
 ## Prerequisites
@@ -61,3 +63,17 @@ Expected response:
 - `docker-compose.yml` - Docker Compose configuration
 - `package.json` - Node.js dependencies
 - `.dockerignore` - Files to exclude from Docker build
+
+
+## GitHub Actions CI/CD
+
+This project includes a GitHub Actions workflow that automatically:
+- Builds the Docker image on every push
+- Runs the container
+- Tests the /health endpoint
+- Displays container logs
+
+The workflow runs on pushes to `main`, `master`, or `develop` branches.
+
+### Workflow File
+See `.github/workflows/docker-build.yml` for the complete CI/CD configuration.
